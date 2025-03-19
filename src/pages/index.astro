@@ -1,0 +1,24 @@
+---
+import MainLayout from '../layouts/MainLayout.astro';
+import Hero from '../components/Hero.astro';
+import About from '../components/About.astro';
+import Projects from '../components/Projects.astro';
+import Skills from '../components/Skills.astro';
+import Contact from '../components/Contact.astro';
+---
+
+<MainLayout title="Mi Portfolio - Inicio" description="Portafolio personal con mis proyectos y habilidades">
+  <Hero />
+  <section id="about">
+    <About />
+  </section>
+  <section id="projects">
+    <Projects />
+  </section>
+  <section id="skills">
+    <Skills />
+  </section>
+  <section id="contact">
+    <Contact />
+  </section>
+</MainLayout>

@@ -1,0 +1,237 @@
+---
+---
+
+<section id="contact" class="section contact">
+  <div class="container">
+    <div class="section-header text-center">
+      <h2>Contacto</h2>
+      <div class="divider"></div>
+      <p>¿Tienes un proyecto en mente? Ponte en contacto conmigo para hacer realidad tus ideas.</p>
+    </div>
+    
+    <div class="contact-content">
+      <div class="contact-info">
+        <div class="info-item">
+          <div class="info-icon">
+            <i class="fas fa-map-marker-alt"></i>
+          </div>
+          <div class="info-content">
+            <h3>Ubicación</h3>
+            <p>Ciudad, País</p>
+          </div>
+        </div>
+        
+        <div class="info-item">
+          <div class="info-icon">
+            <i class="fas fa-envelope"></i>
+          </div>
+          <div class="info-content">
+            <h3>Email</h3>
+            <p><a href="mailto:tu@email.com">tu@email.com</a></p>
+          </div>
+        </div>
+        
+        <div class="info-item">
+          <div class="info-icon">
+            <i class="fas fa-phone"></i>
+          </div>
+          <div class="info-content">
+            <h3>Teléfono</h3>
+            <p><a href="tel:+123456789">+12 3456 789</a></p>
+          </div>
+        </div>
+        
+        <div class="social-connect">
+          <h3>Conéctate Conmigo</h3>
+          <div class="social-icons">
+            <a href="#" aria-label="Github"><i class="fab fa-github"></i></a>
+            <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+            <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+            <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+          </div>
+        </div>
+      </div>
+      
+      <div class="contact-form card">
+        <h3>Envíame un Mensaje</h3>
+        <form id="contactForm">
+          <div class="form-group">
+            <label for="name">Nombre</label>
+            <input type="text" id="name" name="name" placeholder="Tu nombre" required>
+          </div>
+          
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" placeholder="Tu email" required>
+          </div>
+          
+          <div class="form-group">
+            <label for="subject">Asunto</label>
+            <input type="text" id="subject" name="subject" placeholder="Asunto" required>
+          </div>
+          
+          <div class="form-group">
+            <label for="message">Mensaje</label>
+            <textarea id="message" name="message" rows="5" placeholder="Tu mensaje" required></textarea>
+          </div>
+          
+          <button type="submit" class="btn btn-full">Enviar Mensaje</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .contact {
+    background-color: var(--color-primary);
+  }
+  
+  .section-header p {
+    color: var(--color-text-muted);
+    max-width: 600px;
+    margin: var(--space-md) auto 0;
+  }
+  
+  .contact-content {
+    display: grid;
+    grid-template-columns: 1fr 1.5fr;
+    gap: var(--space-xl);
+    margin-top: var(--space-lg);
+  }
+  
+  .contact-info {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-lg);
+  }
+  
+  .info-item {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--space-md);
+  }
+  
+  .info-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+    height: 50px;
+    background-color: var(--color-primary-light);
+    border-radius: 50%;
+    font-size: 1.2rem;
+    color: var(--color-accent);
+    flex-shrink: 0;
+  }
+  
+  .info-content h3 {
+    margin-bottom: 0.25rem;
+    font-size: 1.1rem;
+  }
+  
+  .info-content p {
+    color: var(--color-text-muted);
+    font-size: 0.95rem;
+  }
+  
+  .social-connect h3 {
+    margin-bottom: var(--space-sm);
+    font-size: 1.1rem;
+  }
+  
+  .social-icons {
+    display: flex;
+    gap: 1rem;
+  }
+  
+  .social-icons a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: var(--color-primary-light);
+    color: var(--color-text);
+    transition: var(--transition);
+  }
+  
+  .social-icons a:hover {
+    background-color: var(--color-accent);
+    transform: translateY(-3px);
+  }
+  
+  .contact-form {
+    padding: var(--space-lg);
+  }
+  
+  .contact-form h3 {
+    margin-bottom: var(--space-lg);
+    font-size: 1.25rem;
+    text-align: center;
+  }
+  
+  .form-group {
+    margin-bottom: var(--space-md);
+  }
+  
+  .form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+  }
+  
+  .form-group input,
+  .form-group textarea {
+    width: 100%;
+    padding: 0.75rem;
+    background-color: var(--color-primary);
+    border: 1px solid var(--color-border);
+    border-radius: var(--border-radius);
+    color: var(--color-text);
+    font-family: var(--font-main);
+    transition: var(--transition);
+  }
+  
+  .form-group input:focus,
+  .form-group textarea:focus {
+    outline: none;
+    border-color: var(--color-accent);
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+  }
+  
+  .btn-full {
+    width: 100%;
+    margin-top: var(--space-sm);
+  }
+  
+  /* Responsive */
+  @media (max-width: 992px) {
+    .contact-content {
+      grid-template-columns: 1fr;
+    }
+    
+    .info-item {
+      max-width: 400px;
+    }
+  }
+</style>
+
+<script>
+  // Simple form validation and submission handling
+  document.addEventListener('DOMContentLoaded', () => {
+    const contactForm = document.getElementById('contactForm');
+    
+    if (contactForm) {
+      contactForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        
+        // In a real implementation, you would send the form data to a server
+        // For this demo, we'll just show an alert
+        alert('¡Gracias por tu mensaje! Te responderé pronto.');
+        contactForm.reset();
+      });
+    }
+  });
+</script>
