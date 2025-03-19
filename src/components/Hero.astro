@@ -5,20 +5,17 @@
   <div class="container">
     <div class="hero-content">
       <div class="hero-text animate-fade-in">
-        <h1>Hola, soy <span class="highlight">Tu Nombre</span></h1>
-        <h2>Desarrollador Web & Diseñador</h2>
+        <h1>Hola, soy</h1>
+        <div class="name-wrapper">
+          <div class="name-container">
+            <span class="neon-letter">S</span><span class="neon-letter">a</span><span class="neon-letter">n</span><span class="neon-letter">t</span><span class="neon-letter">i</span><span class="neon-letter">a</span><span class="neon-letter">g</span><span class="neon-letter">o</span><span class="neon-letter"> </span><span class="neon-letter">A</span><span class="neon-letter">r</span><span class="neon-letter">a</span><span class="neon-letter">n</span><span class="neon-letter">g</span><span class="neon-letter">o</span><span class="neon-letter"> </span><span class="neon-letter">B</span><span class="neon-letter">e</span><span class="neon-letter">n</span><span class="neon-letter">j</span><span class="neon-letter">u</span><span class="neon-letter">m</span><span class="neon-letter">e</span><span class="neon-letter">a</span>
+          </div>
+        </div>
+        <h2>Desarrollador Full Stack & Diseñador UI/UX</h2>
         <p>Creo experiencias digitales atractivas y funcionales con un enfoque minimalista y elegante.</p>
         <div class="hero-buttons">
           <a href="#projects" class="btn">Ver Proyectos</a>
           <a href="#contact" class="btn btn-outline">Contacto</a>
-        </div>
-      </div>
-      <div class="hero-image animate-fade-in">
-        <div class="profile-image">
-          <!-- Puedes reemplazar esto con tu propia imagen -->
-          <div class="placeholder-avatar">
-            <i class="fas fa-user"></i>
-          </div>
         </div>
       </div>
     </div>
@@ -31,6 +28,13 @@
 </section>
 
 <style>
+  :root {
+    --neon-color: #3b82f6; /* Color base del neón - debe coincidir con --color-accent */
+    --neon-color-bright: #60a5fa; /* Versión más brillante */
+    --neon-glow: 0 0 5px rgba(59, 130, 246, 0.8), 0 0 10px rgba(59, 130, 246, 0.5), 0 0 15px rgba(59, 130, 246, 0.3);
+    --neon-flicker: 0 0 2px #fff, 0 0 4px #fff, 0 0 8px var(--neon-color), 0 0 12px var(--neon-color), 0 0 16px var(--neon-color);
+  }
+
   .hero {
     min-height: 100vh;
     display: flex;
@@ -42,17 +46,18 @@
   .hero-content {
     display: flex;
     align-items: center;
-    gap: var(--space-xl);
+    justify-content: center;
   }
   
   .hero-text {
-    flex: 1;
+    max-width: 100%;
+    text-align: center;
   }
   
   .hero-text h1 {
-    margin-bottom: 1rem;
+    margin-bottom: 0.5rem;
     font-size: 3.5rem;
-    line-height: 1.1;
+    line-height: 1.2;
   }
   
   .hero-text h2 {
@@ -64,62 +69,115 @@
   .hero-text p {
     color: var(--color-text-muted);
     font-size: 1.2rem;
-    max-width: 540px;
-    margin-bottom: 2rem;
+    max-width: 700px;
+    margin: 0 auto 2rem;
   }
   
-  .highlight {
+  /* Nuevo contenedor para envolver el nombre */
+  .name-wrapper {
+    width: 100%;
+    margin-bottom: 1rem;
+    overflow-x: visible;
+  }
+  
+  /* Estilo para el nombre con efecto neón */
+  .name-container {
+    color: #3b82f6;
     position: relative;
-    color: var(--color-accent);
     display: inline-block;
+    white-space: nowrap;
+    font-size: 3.5rem;
+    font-weight: 700;
+    line-height: 1.2;
   }
   
-  .highlight::after {
+  .name-container::after {
     content: '';
     position: absolute;
     width: 100%;
     height: 8px;
     bottom: 5px;
     left: 0;
-    background-color: var(--color-accent);
+    background-color: #3b82f6;
     opacity: 0.3;
     z-index: -1;
+  }
+  
+  .neon-letter {
+    display: inline-block;
+    position: relative;
+    transition: all 0.15s ease-in-out;
+    color: #3b82f6;
+    font-weight: 600;
+    padding: 0 2px;
+    cursor: default; /* Para indicar que es interactivo */
+  }
+  
+  .neon-letter:hover {
+    color: #60a5fa;
+    text-shadow: 
+      0 0 2px #ffffff,
+      0 0 4px #ffffff,
+      0 0 8px #3b82f6,
+      0 0 12px #3b82f6,
+      0 0 16px #3b82f6,
+      0 0 22px #3b82f6;
+    animation: neonFlicker 1.5s ease-in-out infinite alternate;
+    transform: scale(1.05);
+  }
+  
+  @keyframes neonFlicker {
+    0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% {
+      text-shadow: 
+        0 0 2px #ffffff,
+        0 0 4px #ffffff,
+        0 0 8px #3b82f6,
+        0 0 12px #3b82f6,
+        0 0 16px #3b82f6,
+        0 0 22px #3b82f6;
+    }
+    20%, 24%, 55% {
+      text-shadow: none;
+    }
   }
   
   .hero-buttons {
     display: flex;
     gap: 1rem;
+    justify-content: center;
   }
   
-  .hero-image {
-    flex: 1;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  
-  .profile-image {
-    width: 320px;
-    height: 320px;
-    border-radius: 50%;
-    background: linear-gradient(135deg, var(--color-accent-dark), var(--color-accent));
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  /* Estilos personalizados para los botones del hero */
+  .hero-buttons .btn {
+    padding: 0.75rem 1.8rem;
+    font-weight: 600;
+    letter-spacing: 0.5px;
     position: relative;
     overflow: hidden;
-    border: 5px solid var(--color-primary-light);
-    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+    z-index: 1;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   }
   
-  .placeholder-avatar {
-    width: 100%;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 8rem;
-    color: rgba(255, 255, 255, 0.3);
+  .hero-buttons .btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+  }
+  
+  .hero-buttons .btn:active {
+    transform: translateY(-1px);
+  }
+  
+  .hero-buttons .btn-outline {
+    background-color: transparent;
+    border: 2px solid #3b82f6;
+    color: #3b82f6;
+  }
+  
+  .hero-buttons .btn-outline:hover {
+    background-color: #3b82f6;
+    color: white;
+    transform: translateY(-3px);
+    box-shadow: 0 6px 12px rgba(59, 130, 246, 0.3);
   }
   
   .scroll-indicator {
@@ -161,27 +219,20 @@
   
   /* Responsive */
   @media (max-width: 992px) {
-    .hero-content {
-      flex-direction: column-reverse;
-      text-align: center;
-    }
-    
-    .hero-text h1 {
+    .hero-text h1, .name-container {
       font-size: 2.5rem;
     }
-    
-    .hero-text p {
-      margin: 0 auto 2rem;
+  }
+  
+  @media (max-width: 768px) {
+    .hero-text h1, .name-container {
+      font-size: 2rem;
     }
-    
-    .hero-buttons {
-      justify-content: center;
-    }
-    
-    .profile-image {
-      width: 260px;
-      height: 260px;
-      margin-bottom: 2rem;
+  }
+  
+  @media (max-width: 480px) {
+    .hero-text h1, .name-container {
+      font-size: 1.8rem;
     }
   }
 </style>
