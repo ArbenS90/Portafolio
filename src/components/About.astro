@@ -10,9 +10,7 @@
     
     <div class="about-content">
       <div class="about-image">
-        <div class="image-frame">
-          <img src="/images/me.webp" alt="Santiago Arango Benjumea" class="profile-image" />
-        </div>
+        <img src="/images/santiago3.jpg" alt="Santiago Arango Benjumea" class="profile-image" />
       </div>
       
       <div class="about-text">
@@ -68,44 +66,28 @@
   
   .about-image {
     flex: 1;
+    position: relative;
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+    border-radius: var(--border-radius);
+    background-color: var(--color-primary-dark);
     display: flex;
+    align-items: center;
     justify-content: center;
   }
   
-  .image-frame {
-    width: 400px;
-    height: 400px;
-    border-radius: var(--border-radius);
-    overflow: hidden;
-    border: 1px solid var(--color-border);
-    position: relative;
-    background-color: var(--color-primary-light);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-    transition: all 0.3s ease;
-  }
-  
-  .image-frame:hover {
-    transform: translateY(-5px);
-    box-shadow: 
-      0 15px 35px rgba(0, 0, 0, 0.25),
-      0 0 8px rgba(200, 200, 210, 0.4),
-      0 0 12px rgba(200, 200, 210, 0.3);
-    border-color: rgba(200, 200, 210, 0.6);
-  }
-  
   .profile-image {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: center top;
+    width: 300px;
+    height: auto;
+    object-fit: contain;
     display: block;
-    transition: all 0.5s ease;
-    filter: saturate(0.9) brightness(0.95);
+    opacity: 0.7;
+    transition: opacity 0.3s ease;
   }
   
-  .image-frame:hover .profile-image {
-    transform: scale(1.05);
-    filter: saturate(1.1) brightness(1.05) contrast(1.05);
+  .profile-image:hover {
+    opacity: 0.9;
   }
   
   .about-text {
@@ -180,9 +162,7 @@
       flex-direction: column;
     }
     
-    .image-frame {
-      width: 300px;
-      height: 300px;
+    .about-image {
       margin-bottom: var(--space-lg);
     }
     
