@@ -1,0 +1,115 @@
+---
+const currentYear = new Date().getFullYear();
+
+const links = [
+  { label: 'Privacy', href: '#' },
+  { label: 'Security', href: '#' },
+  { label: 'Legal', href: '#' }
+];
+---
+
+<footer class="footer">
+  <div class="footer__container">
+    <div class="footer__brand">
+      <svg class="footer__logo" fill="currentColor" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+        <path d="M12.0799 24L4 19.2479L9.95537 8.75216L18.04 13.4961L18.0446 4H29.9554L29.96 13.4961L38.0446 8.75216L44 19.2479L35.92 24L44 28.7521L38.0446 39.2479L29.96 34.5039L29.9554 44H18.0446L18.04 34.5039L9.95537 39.2479L4 28.7521L12.0799 24Z"></path>
+      </svg>
+      <span class="footer__copyright">SYS-ENG © {currentYear}</span>
+    </div>
+
+    <nav class="footer__nav">
+      {links.map((link) => (
+        <a href={link.href} class="footer__link">{link.label}</a>
+      ))}
+    </nav>
+
+    <div class="footer__social">
+      <a href="#" class="footer__social-link" aria-label="Terminal">
+        <span>⌨️</span>
+      </a>
+      <a href="#" class="footer__social-link" aria-label="Share">
+        <span>🔗</span>
+      </a>
+    </div>
+  </div>
+</footer>
+
+<style>
+  .footer {
+    padding: 2.5rem 2rem;
+    border-top: 1px solid var(--color-border);
+  }
+
+  .footer__container {
+    max-width: 960px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+  }
+
+  .footer__brand {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .footer__logo {
+    width: 1rem;
+    height: 1rem;
+    color: var(--color-primary);
+  }
+
+  .footer__copyright {
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+  }
+
+  .footer__nav {
+    display: flex;
+    gap: 2rem;
+  }
+
+  .footer__link {
+    font-size: 0.625rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.3em;
+    color: var(--color-text-subtle);
+    transition: color var(--transition-fast);
+  }
+
+  .footer__link:hover {
+    color: var(--color-primary);
+  }
+
+  .footer__social {
+    display: flex;
+    gap: 1rem;
+  }
+
+  .footer__social-link {
+    width: 2rem;
+    height: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-sm);
+    font-size: 0.875rem;
+    transition: border-color var(--transition-fast);
+  }
+
+  .footer__social-link:hover {
+    border-color: var(--color-primary);
+  }
+
+  @media (min-width: 1024px) {
+    .footer__container {
+      flex-direction: row;
+      justify-content: space-between;
+    }
+  }
+</style>

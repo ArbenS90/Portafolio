@@ -1,0 +1,182 @@
+---
+const projects = [
+  {
+    title: 'AETHER OS',
+    tag: 'Web3',
+    description: 'A decentralized operating system for edge computing nodes.',
+    techs: ['TypeScript', 'Rust', 'WASM'],
+    image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuDLLb7Xs4NM3GJKtlkkJbGdJgGYdXa6LASgyT5RHK-Ri7DD_I3rNmJGQsRTWpatpgDwloWCAzEPwmQUNZhOhiVZY6VRk7TejdYsV6CmO7aOCBQxuo0niDxjBOnCJdZKodWbeQQjAjvyisro_xKonmd7LW9W-6J2C9xBArmGjTBse6M9T93Lu79li7INteQ5f6xrjH-wxAerm8Wf_v6IvJ34gD-O400VzzoMyRctXjUJfTT7IYCSqaSSUwgANvdrwHp2FhvfgZtWRC8'
+  },
+  {
+    title: 'NEURAL NET',
+    tag: 'AI/ML',
+    description: 'Generative UI components reacting to user behavior patterns.',
+    techs: ['Python', 'Next.js', 'Tailwind'],
+    image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuBFnUQu7n6Wjzi4oyvOS5rGk-WF-vinFg3NjI3_CPB-fD3gdSyiT2hdbn2GuYL1jurMCZQiyVTM_9t0fnqnZykP6tFeKxp5b5g6IN-ZT2hVG8XG7z6NO60Vb0OfrPETD85sG__R8KpcwOM1JTUABRDskw73XdGx9ifv4K5R0t9aX3pIesHDz29zNO9Pl5Be1ujg9SYY-DzFalo8Ce1XuZ5jPk5IVvE4xqCkst-VzZxU5HUXv7HxIeUD2zJIYGJQiqc6CflIZhca8O0'
+  }
+];
+---
+
+<section class="projects">
+  <div class="projects__container">
+    <div class="projects__header">
+      <div>
+        <span class="projects__tagline">Latest Deployments</span>
+        <h2 class="projects__title">Recent Artifacts</h2>
+      </div>
+      <a href="#" class="projects__link">View Archive</a>
+    </div>
+
+    <div class="projects__grid">
+      {projects.map((project) => (
+        <article class="project-card">
+          <div class="project-card__image" style={`background-image: url('${project.image}')`}></div>
+          <div class="project-card__content">
+            <div class="project-card__header">
+              <h3 class="project-card__title">{project.title}</h3>
+              <span class="project-card__tag">{project.tag}</span>
+            </div>
+            <p class="project-card__description">{project.description}</p>
+            <div class="project-card__techs">
+              {project.techs.map((tech) => (
+                <span class="project-card__tech">{tech}</span>
+              ))}
+            </div>
+          </div>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .projects {
+    padding: 5rem 2rem;
+    border-top: 1px solid var(--color-border);
+  }
+
+  .projects__container {
+    max-width: 960px;
+    margin: 0 auto;
+  }
+
+  .projects__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-bottom: 3rem;
+  }
+
+  .projects__tagline {
+    display: block;
+    color: var(--color-primary);
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.3em;
+    margin-bottom: 1rem;
+  }
+
+  .projects__title {
+    font-size: 1.875rem;
+    font-weight: 700;
+    letter-spacing: -0.025em;
+  }
+
+  .projects__link {
+    font-size: 0.875rem;
+    color: var(--color-primary);
+    border-bottom: 1px solid rgba(43, 108, 238, 0.4);
+    padding-bottom: 0.25rem;
+    transition: border-color var(--transition-fast);
+  }
+
+  .projects__link:hover {
+    border-color: var(--color-primary);
+  }
+
+  .projects__grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .project-card {
+    background-color: var(--color-surface);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    transition: border-color var(--transition-normal);
+  }
+
+  .project-card:hover {
+    border-color: rgba(43, 108, 238, 0.3);
+  }
+
+  .project-card__image {
+    aspect-ratio: 16 / 9;
+    background-size: cover;
+    background-position: center;
+    transition: transform 0.7s ease;
+  }
+
+  .project-card:hover .project-card__image {
+    transform: scale(1.05);
+  }
+
+  .project-card__content {
+    padding: 1.5rem;
+  }
+
+  .project-card__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 0.5rem;
+  }
+
+  .project-card__title {
+    font-size: 1.25rem;
+    font-weight: 700;
+  }
+
+  .project-card__tag {
+    font-size: 0.625rem;
+    padding: 0.25rem 0.5rem;
+    border: 1px solid rgba(43, 108, 238, 0.2);
+    color: var(--color-primary);
+    border-radius: var(--radius-sm);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+  }
+
+  .project-card__description {
+    font-size: 0.875rem;
+    color: var(--color-text-muted);
+    margin-bottom: 1rem;
+  }
+
+  .project-card__techs {
+    display: flex;
+    gap: 0.5rem;
+  }
+
+  .project-card__tech {
+    font-size: 0.625rem;
+    color: var(--color-text-subtle);
+    text-transform: uppercase;
+    letter-spacing: -0.025em;
+  }
+
+  @media (min-width: 768px) {
+    .projects__grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .projects {
+      padding: 5rem 2.5rem;
+    }
+  }
+</style>

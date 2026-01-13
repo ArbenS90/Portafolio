@@ -1,0 +1,139 @@
+---
+const stacks = [
+  {
+    icon: '☁️',
+    title: 'Cloud & DevOps',
+    skills: ['AWS', 'Docker', 'Kubernetes', 'Terraform', 'CI/CD (Jenkins, GitHub Actions)']
+  },
+  {
+    icon: '🛡️',
+    title: 'Networking & Security',
+    skills: ['TCP/IP, DNS, HTTP/S', 'Firewalls & VPNs', 'Load Balancing', 'IAM & SSO', 'Penetration Testing Tools']
+  },
+  {
+    icon: '⌨️',
+    title: 'Scripting & Automation',
+    skills: ['Python', 'Bash/Shell Scripting', 'Go', 'Ansible', 'PowerShell']
+  }
+];
+---
+
+<section class="tech-stack">
+  <div class="tech-stack__container">
+    <div class="tech-stack__header">
+      <span class="tech-stack__tagline">Core Competencies</span>
+      <h2 class="tech-stack__title">Technology Stack</h2>
+    </div>
+
+    <div class="tech-stack__grid">
+      {stacks.map((stack) => (
+        <div class="stack-card">
+          <div class="stack-card__header">
+            <span class="stack-card__icon">{stack.icon}</span>
+            <h3 class="stack-card__title">{stack.title}</h3>
+          </div>
+          <ul class="stack-card__list">
+            {stack.skills.map((skill) => (
+              <li class="stack-card__item">{skill}</li>
+            ))}
+          </ul>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .tech-stack {
+    padding: 5rem 2rem;
+    border-top: 1px solid var(--color-border);
+  }
+
+  .tech-stack__container {
+    max-width: 960px;
+    margin: 0 auto;
+  }
+
+  .tech-stack__header {
+    text-align: center;
+    margin-bottom: 3rem;
+  }
+
+  .tech-stack__tagline {
+    display: block;
+    color: var(--color-primary);
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.3em;
+    margin-bottom: 1rem;
+  }
+
+  .tech-stack__title {
+    font-size: 1.875rem;
+    font-weight: 700;
+    letter-spacing: -0.025em;
+  }
+
+  .tech-stack__grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .stack-card {
+    background-color: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    padding: 1.5rem;
+  }
+
+  .stack-card__header {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 1rem;
+  }
+
+  .stack-card__icon {
+    font-size: 1.5rem;
+  }
+
+  .stack-card__title {
+    font-size: 1.125rem;
+    font-weight: 700;
+    letter-spacing: -0.025em;
+  }
+
+  .stack-card__list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .stack-card__item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.875rem;
+    color: var(--color-text-muted);
+  }
+
+  .stack-card__item::before {
+    content: '→';
+    color: var(--color-primary);
+    opacity: 0.5;
+  }
+
+  @media (min-width: 768px) {
+    .tech-stack__grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .tech-stack {
+      padding: 5rem 2.5rem;
+    }
+  }
+</style>

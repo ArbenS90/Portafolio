@@ -1,0 +1,238 @@
+---
+// Aquí puedes definir datos si los necesitas
+const stats = [
+  { value: "5", label: "Proyectos completados" },
+  { value: "+2", label: "Años de experiencia" },
+  { value: "10+", label: "Clientes satisfechos" },
+];
+---
+
+<section class="hero">
+  <div class="hero__content">
+    <header class="hero__header">
+      <div class="hero__logo">
+        <svg fill="none" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+          <path
+            clip-rule="evenodd"
+            d="M12.0799 24L4 19.2479L9.95537 8.75216L18.04 13.4961L18.0446 4H29.9554L29.96 13.4961L38.0446 8.75216L44 19.2479L35.92 24L44 28.7521L38.0446 39.2479L29.96 34.5039L29.9554 44H18.0446L18.04 34.5039L9.95537 39.2479L4 28.7521L12.0799 24Z"
+            fill="currentColor"
+            fill-rule="evenodd"></path>
+        </svg>
+      </div>
+      <h2 class="hero__title-small">Ingeniero de Sistemas</h2>
+    </header>
+
+    <div class="hero__main">
+      <span class="hero__tagline"
+        >Desarrollador Web y de Software // Entusiasta del GameDev y
+        Ciberseguridad</span
+      >
+      <h1 class="hero__title">
+        Creando Experiencias<br />
+        <span class="hero__title-gradient">Digitales Únicas.</span>
+      </h1>
+      <p class="hero__description">
+        Desarrollo sitios web y aplicaciones que combinan diseño, rendimiento y
+        funcionalidad. Enfocado en WordPress, e-commerce y soluciones a medida.
+      </p>
+
+      <div class="hero__buttons">
+        <button class="btn btn--primary">VER PROYECTOS</button>
+        <button class="btn btn--outline">CONTACTAME</button>
+      </div>
+    </div>
+
+    <div class="hero__stats">
+      {
+        stats.map((stat) => (
+          <div class="stat">
+            <span class="stat__value">{stat.value}</span>
+            <span class="stat__label">{stat.label}</span>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+
+  <div class="hero__visual">
+    <div class="hero__circle">
+      <div class="hero__circle-inner"></div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .hero {
+    display: flex;
+    min-height: 100vh;
+    background-image: radial-gradient(circle, #1a1a1a 1px, transparent 1px);
+    background-size: 40px 40px;
+  }
+
+  .hero__content {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 100%;
+    padding: 2rem;
+  }
+
+  .hero__header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .hero__logo {
+    width: 2rem;
+    height: 2rem;
+    color: var(--color-primary);
+    transition: transform var(--transition-normal);
+  }
+
+  .hero__header:hover .hero__logo {
+    transform: rotate(90deg);
+  }
+
+  .hero__title-small {
+    font-size: 1.25rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: -0.025em;
+  }
+
+  .hero__main {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    max-width: 500px;
+  }
+
+  .hero__tagline {
+    color: var(--color-primary);
+    font-size: 0.75rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+  }
+
+  .hero__title {
+    font-size: clamp(2.5rem, 8vw, 4.5rem);
+    font-weight: 700;
+    line-height: 1;
+    letter-spacing: -0.025em;
+  }
+
+  .hero__title-gradient {
+    background: linear-gradient(to right, var(--color-primary), #22d3ee);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  .hero__description {
+    font-size: 1.125rem;
+    font-weight: 300;
+    line-height: 1.7;
+    color: var(--color-text-muted);
+  }
+
+  .hero__buttons {
+    display: flex;
+    gap: 1rem;
+  }
+
+  .btn {
+    padding: 1rem 2rem;
+    font-size: 0.875rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    border-radius: var(--radius-sm);
+    transition: all var(--transition-fast);
+  }
+
+  .btn--primary {
+    background-color: var(--color-primary);
+    color: var(--color-text);
+  }
+
+  .btn--primary:hover {
+    background-color: var(--color-primary-hover);
+  }
+
+  .btn--outline {
+    background-color: transparent;
+    border: 1px solid var(--color-border);
+    color: var(--color-text);
+  }
+
+  .btn--outline:hover {
+    background-color: rgba(255, 255, 255, 0.05);
+  }
+
+  .hero__stats {
+    display: flex;
+    gap: 3rem;
+    padding-top: 2rem;
+    border-top: 1px solid var(--color-border);
+  }
+
+  .stat {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .stat__value {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--color-primary);
+  }
+
+  .stat__label {
+    font-size: 0.625rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--color-text-subtle);
+  }
+
+  .hero__visual {
+    display: none;
+  }
+
+  /* Desktop */
+  @media (min-width: 1024px) {
+    .hero__content {
+      width: 50%;
+      padding: 5rem;
+    }
+
+    .hero__visual {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 50%;
+      background-color: #080808;
+      border-left: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    .hero__circle {
+      position: relative;
+      width: 500px;
+      height: 500px;
+      border: 1px solid rgba(43, 108, 238, 0.2);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .hero__circle-inner {
+      width: 6rem;
+      height: 6rem;
+      background-color: rgba(43, 108, 238, 0.1);
+      border: 1px solid rgba(43, 108, 238, 0.5);
+      border-radius: 50%;
+    }
+  }
+</style>
